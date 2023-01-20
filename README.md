@@ -1,6 +1,6 @@
 # EPiC-GAN - Equivariant Point Cloud Generation for Particle Jets
 
-Pytorch implementation of the EPiC-GAN introduced in *EPiC-GAN - Equivariant Point Cloud Generation for Particle Jets* [arXiv:2301:XXXX](https://arxiv.org)
+Pytorch implementation of the EPiC-GAN introduced in *EPiC-GAN - Equivariant Point Cloud Generation for Particle Jets* ([arXiv:2301:08128]( http://arxiv.org/abs/2301.08128))
 
 ## Overview:
 
@@ -9,7 +9,7 @@ We trained the EPiC-GANs on the [JetNet30](https://doi.org/10.5281/zenodo.697511
 
 ## Generation:
 
-To generate particle jets using the trained models from [arXiv:2301:XXXX](https://arxiv.org), use the following code:
+Generate particle jets using the trained models from [arXiv:2301:08128](http://arxiv.org/abs/2301.08128) via:
 ```bash
 python generate.py --n_points 30 --dataset_type jetnet_gluon --events 100_000
 ```
@@ -17,7 +17,7 @@ This will generate 100k gluon jets corresponding to the JetNet30 gluon dataset. 
 
 ## Training:
 
-To train the EPiC-GAN, download the JetNet datasets from the above links. Additionally a pre-processing is performed, which can be run via the notebook `dataset/JetNet_dataset_processing.ipynb`. Afterwards train the EPiC-GAN with the hyperparameters from the publication for 10 epochs via:
+To train the EPiC-GAN, download the JetNet datasets from the above links. Additionally a pre-processing needs to be performed, which can be run via the notebook `dataset/JetNet_dataset_processing.ipynb`. Afterwards train the EPiC-GAN with the hyperparameters from the publication for 10 epochs via:
 ```bash
 python start_training.py --n_points 150 --dataset_type jetnet_top --epochs 10
 ```

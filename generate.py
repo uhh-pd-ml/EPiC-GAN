@@ -78,6 +78,7 @@ def main():
     stop_time = time.time()
     print('generation done in {} seconds'.format(stop_time - start_time))
     print('time per jet: {} microseconds'.format((stop_time - start_time)/params.events * 1e6))
+    print('(note that these timings are not comparable to the timing mentioned in the papaer, as here we are generating jets with a variable particle multiplicity)')
 
     np.save(params.output_folder+params.outfile_name, gen_ary)
 

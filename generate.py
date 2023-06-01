@@ -82,7 +82,7 @@ def main():
 
     np.save(params.output_folder+params.outfile_name, gen_ary)
 
-    print('Output shape: {}. Done.'.format(gen_ary.shape))
+    print('Output shape: {}. Order of features: [p_t, rapitiy eta, angle phi]. Done.'.format(gen_ary.shape))
 
 
 

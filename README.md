@@ -13,7 +13,7 @@ Generate particle jets using the trained models from [arXiv:2301:08128](http://a
 ```bash
 python generate.py --n_points 30 --dataset_type jetnet_gluon --events 100_000
 ```
-This will generate 100k gluon jets corresponding to the JetNet30 gluon dataset. Valid options for `--n_points` are `30` or `150` for JetNet30 / JetNet150 respectively. `--datasets_type` is either `jetnet_gluon`, `jetnet_quark`, or `jetnet_top`. The `--events` flag determines the number of generated jets.
+This will generate 100k gluon jets corresponding to the JetNet30 gluon dataset. Valid options for `--n_points` are `30` or `150` for JetNet30 / JetNet150 respectively. `--datasets_type` is either `jetnet_gluon`, `jetnet_quark`, or `jetnet_top`. The `--events` flag determines the number of generated jets. The output shape of the jets is [events, max_particles, features] with the features in the order [p_t, rapidity, angle phi].
 
 ## Training:
 

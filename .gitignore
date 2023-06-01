@@ -143,3 +143,4 @@ dataset/*.pkl
 dataset/*.npy
 *.npy
 evaluation/*timing*
+test*

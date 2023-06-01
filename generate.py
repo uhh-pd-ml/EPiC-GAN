@@ -51,7 +51,7 @@ def main():
 
 
     # LOAD KDE of particle multiplicity distribution
-    _, _, _, f_kde, norm_means, norm_stds, mins, _ = utils.get_dataset(vars(params))
+    f_kde, norm_means, norm_stds, mins = utils.get_kde_etc(vars(params))
 
     # define model arguments and load model
         ## arguments for network

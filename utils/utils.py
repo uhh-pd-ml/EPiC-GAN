@@ -598,3 +598,53 @@ def dataset_means_stds_mins_maxs(f_train):
         min_list.append(data.min())
         max_list.append(data.max())
     return mean_list, std_list, min_list, max_list
+
+
+
+def get_kde_etc(params):
+    n_points = params['n_points']
+    
+    out_folder='./trained_models/'
+    if n_points == 30:
+        if params['dataset_type'] == 'jetnet_gluon':
+            outfile_prefix = 'gluon_jetnet30_'
+            norm_means = [0.030343968, -4.588791e-05, 2.2458495e-05]
+            norm_stds = [0.042161893, 0.07787612, 0.07671888]
+            mins = [0.00014411772, -1.4537076, -0.520713]
+        elif params['dataset_type'] == 'jetnet_quark':
+            outfile_prefix = 'quark_jetnet30_'
+            norm_means = [0.03566415, -5.2653548e-05, -2.5356381e-05]
+            norm_stds = [0.0702585, 0.09262083, 0.09053166]
+            mins = [0.00015976025, -1.602905, -0.45165253]
+        elif params['dataset_type'] == 'jetnet_top':
+            outfile_prefix = 'top_jetnet30_'
+            norm_means = [0.030520283, 6.3335856e-06, -4.6439443e-05]
+            norm_stds =  [0.03952279, 0.11629426, 0.1172293]
+            mins = [0.00012232896, -1.4279099, -0.46341833]
+        else:
+            sys.exit('ERROR: DATASET TYPE NOT DEFINED')
+        
+
+    elif n_points == 150:
+        if params['dataset_type'] == 'jetnet_gluon':
+            outfile_prefix = 'gluon_jetnet150_'
+            norm_means = [0.015032492, -3.4442783e-06, -7.23883e-06]
+            norm_stds =  [0.03147635, 0.1177723, 0.11498551]
+            mins = [8.592512e-05, -1.5689788, -0.5592929]
+        elif params['dataset_type'] == 'jetnet_quark':
+            outfile_prefix = 'quark_jetnet150_'
+            norm_means = [0.02613498, -4.4829252e-05, -6.1266226e-05]
+            norm_stds =  [0.061331585, 0.11122727, 0.10829062]
+            mins = [0.0001457285, -1.612775, -0.5702299]
+        elif params['dataset_type'] == 'jetnet_top':
+            outfile_prefix = 'top_jetnet150_'
+            norm_means = [0.015980698, -7.679745e-05, 5.852982e-06] 
+            norm_stds =  [0.030631103, 0.13794015, 0.13737969]
+            mins = [0.00010579008, -1.6059581, -0.55349904]
+        else:
+            sys.exit('ERROR: DATASET TYPE NOT DEFINED')
+    else:
+        sys.exit('ERROR: NO DATASET FOR THIS NUMBER OF POINTS DEFINED')
+
+    f_kde = out_folder + outfile_prefix + '_mults_kde.pkl'
+    return f_kde, norm_means, norm_stds, mins
